@@ -1,8 +1,12 @@
-#include <bits/stdc++.h>
-#include <unistd.h>
-#include "utils/conio.h"
+#include <iostream>
+#include <time.h>
 #include "utils/COLORS!.hpp"
-#include <sstream>
+#ifdef _WIN32
+#include <conio.h>
+#endif
+#ifdef linux
+#include "utils/conio.h"
+#endif
 using namespace std;
 
 struct Node
@@ -46,6 +50,15 @@ public:
         draw();
         cout << "Score: " << score << endl;
     }
+    void clearScreen()
+    {
+#ifdef _WIN32
+        system("cls");
+#endif
+#ifdef linux
+        system("clear");
+#endif
+    }
     bool isPresent(int a, int b)
     {
         Node *t = head;
@@ -69,6 +82,14 @@ public:
             t = t->next;
         }
         return false;
+    }
+    void sleep(int milliseconds)
+    {
+        clock_t time_end;
+        time_end = clock() + milliseconds * CLOCKS_PER_SEC / 1000;
+        while (clock() < time_end)
+        {
+        }
     }
     void draw()
     {
@@ -117,8 +138,8 @@ public:
             }
             cout << "Score : " << score << endl;
             processInput(ate);
-            usleep(90000);
-            system("clear");
+            sleep(90);
+            clearScreen();
         }
     }
     void spawnFood()
