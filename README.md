@@ -1,5 +1,5 @@
 # Snakes
-This is a Snakes game written in C++ for Linux, using Linked Lists
+This is a cross platform Snakes game made using Linked Lists.
 
 # Preview
 ![Here is a quick preview of the game](https://i.imgur.com/S4nnvZZ.gif)
